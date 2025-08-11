@@ -9,10 +9,10 @@
 
 
 // Startup 
-spawn-at-startup "~/.config/niri/scripts/wallpaper.sh"
-spawn-at-startup "waybar"
+//spawn-at-startup "~/.config/niri/scripts/wallpaper.sh"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+spawn-at-startup "qs"
 // Remove window decor
 prefer-no-csd
 
@@ -80,6 +80,7 @@ layout {
     gaps 3
     always-center-single-column
     center-focused-column "on-overflow"
+    background-color "transparent"
     preset-column-widths {
         proportion 0.33333
         proportion 0.5
@@ -184,8 +185,8 @@ environment {
 binds {
 
     Mod+return { spawn "foot"; }
-    Mod+Space { spawn "fuzzel"; }
-    Super+Alt+L { spawn "swaylock"; }
+    Mod+Space { spawn "qs" "ipc" "call" "globalIPC" "toggleLauncher"; }
+    Super+Alt+L { spawn "qs" "ipc" "call" "globalIPC" "toggleLock"; }
     Mod+B {spawn "zen-browser";}
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02+" "--limit" "1.0"; }
@@ -193,10 +194,10 @@ binds {
     XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 
-    XF86AudioPlay allow-when-locked=true { spawn "playerctl" "play-pause";}
-    XF86AudioStop allow-when-locked=true { spawn "playerctl" "pause";}
-    XF86AudioNext allow-when-locked=true { spawn "playerctl" "next";}
-    XF86AudioPrev allow-when-locked=true { spawn "playerctl" "previous";}
+    XF86AudioPlay allow-when-locked=true { spawn "qs" "ipc" "call" "globalIPC" "musicPlayPause";}
+    XF86AudioStop allow-when-locked=true { spawn "qs" "ipc" "call" "globalIPC" "musicStop"; }
+    XF86AudioNext allow-when-locked=true { spawn "qs" "ipc" "call" "globalIPC" "musicNext"; }
+    XF86AudioPrev allow-when-locked=true { spawn "qs" "ipc" "call" "globalIPC" "musicPrevious"; }
 
     XF86KbdBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--device=asus::kbd_backlight" "set" "1-"; }
     XF86KbdBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--device=asus::kbd_backlight" "set" "1+"; }
