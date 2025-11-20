@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# tinyurl
+tinyurl() {
+	curl -sw '\n' "http://tinyurl.com/api-create.php?url=$1"
+}
+
+#escape() {
+#	LC_ALL=C sed -e 's/[^a-zA-Z0-9,._+@%/-]/\\&/g; 1{$s/^$/""/}; 1!s/^/"/; $!s/$/"/'
+#}

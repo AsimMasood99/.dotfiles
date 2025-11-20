@@ -1,0 +1,27 @@
+#!/bin/sh
+function ls {
+  if [[ "$@" =~ "-a" || "$@" =~ "-A" || "$@" =~ "--all" || "$@" =~ "--almost-all" ]]; then
+    eza --color=auto --group-directories-first $@
+  else
+    eza --color=auto --group-directories-first --ignore-glob "$([[ -f .hidden ]] && cat .hidden | tr '\n' '|')" $@
+  fi
+}
+#alias ls='eza --color=auto --group-directories-first' ## list unhidden files using exa
+alias ll='ls -lh' ## list unhidden files in list form
+alias la='ls -a' ## list all files
+alias lla='ll -a' ## list all files in list form
+alias grep='rg -i' ## search case-insensitively
+alias mv='mv -iv' ## verbose output + confirmation
+alias rm='rm -Iv --one-file-system' ## verbose output + confirmation
+alias sudo='sudo ' ## to make aliases work with sudo
+alias cp='cp -iv' ## verbose output + confirmation
+alias df='df -h' ## output in megabytes
+alias diff='diff --color=auto'
+alias myip='curl -w "\n" https://ifconfig.me'
+alias cat='bat -pp'
+alias ip='ip -c'
+alias vi='nvim'
+alias vim='nvim'
+alias ssh='TERM=xterm-256color ssh'
+alias distrobox='TERM=xterm-256color distrobox'
+alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
