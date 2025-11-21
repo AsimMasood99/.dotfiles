@@ -1,0 +1,37 @@
+(include "modules/time.yuck")
+(defwidget bar []
+	(box :orientation 'v'
+	(top)
+	(middle)
+	(bottom)
+	)
+
+)
+
+(defwidget top []
+	(box :orientation 'v'
+	:valign 'start'
+	:halign 'center'
+	(time_module)
+	)
+)
+
+(defwidget middle []
+	(box :orientation 'v')
+)
+
+
+(defwidget bottom []
+	(box :orientation 'v')
+)
+
+(defwindow bar
+	:monitor 0
+	:windowtype 'dock'
+	:exclusive true
+	:geometry (geometry :width "2%" 
+						:height "100%"
+						:anchor 'left center')
+	:reserve (struts :side "left" :distance "4%")
+	(bar)
+)
