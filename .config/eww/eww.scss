@@ -1,0 +1,27 @@
+@import './colors/gruvbox_dark.scss'
+@import './scss/time.scss'
+
+* {
+    all: unset;
+    font-family:  'Noto Sans Mono', monospace;
+    color: $fg;
+    font-size: large;
+}
+
+tooltip {
+    background-color: $bg3;
+    border: $bg2;
+    border-radius: 5%;
+}
+
+.bar {
+    background-color: $bg0_h;
+}
+
+.bar_top {
+    margin-top: 5px;
+}
+
+.bar_bottom {
+    margin-bottom: 10px;
+}

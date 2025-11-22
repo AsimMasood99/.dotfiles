@@ -1,4 +1,5 @@
 ### *Dotfiles*
 ---
 #### TODO: 
-Add todos
+- Make/Steal eww bar
+- Configure dunset
