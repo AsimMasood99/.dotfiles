@@ -4,5 +4,5 @@
             :halign "center"
             :valign "center"
             :tooltip {formattime(EWW_TIME, "%I:%M %p%n%A%n%B %d, %Y")}
-            (label :text {formattime(EWW_TIME, "%I%n%M")}))
+            (label :text {formattime(EWW_TIME, "%I%n%M%n%p")}))
             )
