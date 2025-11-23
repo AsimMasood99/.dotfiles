@@ -1,0 +1,15 @@
+(deflisten microphone_attr :initial '{"icon":"", "level":0}' "scripts/microphone.sh get")
+
+(defwidget microphone []
+  (eventbox
+    :class 'microphone_module'
+    :halign 'center'
+    :valign 'center'
+    :onscroll "if [ '{}' = 'up' ]; then scripts/microphone.sh set +5; else scripts/microphone.sh set -5; fi"
+    :onclick "scripts/microphone.sh toggle"
+    (label
+      :text {microphone_attr.icon}
+      :tooltip "Microphone: ${microphone_attr.level}%"
+    )
+  )
+)

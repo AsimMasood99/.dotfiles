@@ -1,5 +1,6 @@
 (include "modules/time.yuck")
 (include "modules/volume.yuck")
+(include "modules/microphone.yuck")
 
 (defwidget bar []
   (box :orientation 'v'
@@ -33,12 +34,12 @@
     :orientation 'v'
     :halign 'center'
     :valign 'end'
-    :spacing 12
+    :spacing 20
+    :space-evenly 'false'
     (systray :orientation 'v'
       :spacing 12
-      :icon-size 16
-      :valign 'end'
-    )
+      :icon-size 16)
+    (microphone)
     (volume)
   )
 )
