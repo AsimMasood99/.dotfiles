@@ -1,8 +1,8 @@
 (defwidget time_module []
-        (box
-            :class "time_module"
-            :halign "center"
-            :valign "center"
-            :tooltip {formattime(EWW_TIME, "%I:%M %p%n%A%n%B %d, %Y")}
-            (label :text {formattime(EWW_TIME, "%I%n%M%n%p")}))
-            )
+  (box
+    :class "time_module"
+    :halign "center"
+    :valign "center"
+    :tooltip {formattime(EWW_TIME, "%I:%M %p%n%A%n%B %d, %Y")}
+    (label :text {formattime(EWW_TIME, "%I%n%M%n%p")}))
+)

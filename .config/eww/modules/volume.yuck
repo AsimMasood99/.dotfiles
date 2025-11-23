@@ -1,0 +1,15 @@
+(deflisten volume_attr :initial '{"icon":"", "level":0}' "scripts/volume.sh get")
+
+(defwidget volume []
+  (eventbox
+    :class 'volume_module'
+    :halign 'center'
+    :valign 'center'
+    :onscroll "if [ '{}' = 'up' ]; then scripts/volume.sh set +5; else scripts/volume.sh set -5; fi"
+    :onclick "scripts/volume.sh toggle"
+    (label
+      :text {volume_attr.icon}
+      :tooltip "Volume: ${volume_attr.level}%"
+    )
+  )
+)

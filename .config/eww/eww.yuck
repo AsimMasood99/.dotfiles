@@ -1,48 +1,55 @@
 (include "modules/time.yuck")
-(defwidget bar []
-	(box :orientation 'v' 
-	:class 'bar'
-	(top)
-	(middle)
-	(bottom)
-	)
+(include "modules/volume.yuck")
 
+(defwidget bar []
+  (box :orientation 'v'
+    :class 'bar'
+    (top)
+    (middle)
+    (bottom)
+  )
+  
 )
 
 (defwidget top []
-	(box :orientation 'v'
-	:valign 'start'
-	:halign 'center'
-	:class 'bar_top'
-	(time_module)
-	)
+  (box :orientation 'v'
+    :valign 'start'
+    :halign 'center'
+    :class 'bar_top'
+    (time_module)
+  )
 )
 
 (defwidget middle []
-	(box :orientation 'v'
-	     :class 'bar_middle'
-		)
+  (box :orientation 'v'
+    :class 'bar_middle'
+  )
 )
 
 ; TODO: Music Controls
 (defwidget bottom []
-	(box
-		:class 'bar_bottom'
-
-		(systray :orientation 'v'
-		:spacing 12
-		:icon-size 16
-		:valign 'end'
-	)
-	)
+  (box
+    :class 'bar_bottom'
+    :orientation 'v'
+    :halign 'center'
+    :valign 'end'
+    :spacing 12
+    (systray :orientation 'v'
+      :spacing 12
+      :icon-size 16
+      :valign 'end'
+    )
+    (volume)
+  )
 )
 
+
 (defwindow bar
-	:monitor 0
-	:exclusive true
-	:namespace 'ewwbar'
-	:geometry (geometry :width "2.3%" 
-						:height "100%"
-						:anchor 'left center')
-	(bar)
+  :monitor 0
+  :exclusive true
+  :namespace 'ewwbar'
+  :geometry (geometry :width "2.3%"
+    :height "100%"
+  :anchor 'left center')
+  (bar)
 )
