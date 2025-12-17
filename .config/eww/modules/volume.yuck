@@ -5,7 +5,7 @@
     :class 'volume_module'
     :halign 'center'
     :valign 'center'
-    :onscroll "if [ '{}' = 'up' ]; then scripts/volume.sh set +5; else scripts/volume.sh set -5; fi"
+    :onscroll "if [ '{}' = 'up' ]; then scripts/volume.sh set +2; else scripts/volume.sh set -2; fi"
     :onclick "scripts/volume.sh toggle"
     (label
       :text {volume_attr.icon}

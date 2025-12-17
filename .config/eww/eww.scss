@@ -1,11 +1,11 @@
-@import './colors/gruvbox_dark.scss'
-@import './scss/time.scss'
-@import './scss/volume.scss'
-@import './scss/microphone.scss'
+@import './colors/gruvbox_dark.scss';
+@import './scss/time.scss';
+@import './scss/volume.scss';
+@import './scss/microphone.scss';
 
 * {
     all: unset;
-    font-family:  'Noto Sans Mono', monospace;
+    font-family: 'Noto Sans Mono', monospace;
     color: $fg;
 }
 

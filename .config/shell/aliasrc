@@ -24,4 +24,10 @@ alias vi='nvim'
 alias vim='nvim'
 alias ssh='TERM=xterm-256color ssh'
 alias distrobox='TERM=xterm-256color distrobox'
-alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
+alias dtf='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
+
+# Git
+alias g="git"
+alias gs="git status"
+alias gss="git status -s"
+alias gl="git log"

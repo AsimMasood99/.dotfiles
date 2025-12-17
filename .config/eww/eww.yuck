@@ -38,7 +38,7 @@
     :space-evenly 'false'
     (systray :orientation 'v'
       :spacing 12
-      :icon-size 16)
+    :icon-size 16)
     (microphone)
     (volume)
   )
@@ -49,7 +49,7 @@
   :monitor 0
   :exclusive true
   :namespace 'ewwbar'
-  :geometry (geometry :width "2.3%"
+  :geometry (geometry :width "2.4%"
     :height "100%"
   :anchor 'left center')
   (bar)

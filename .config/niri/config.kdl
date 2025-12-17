@@ -67,6 +67,12 @@ output "HDMI-A-1" {
     // position x=1280 y=0
 }
 
+output "eDP-1" {
+	mode "2560x1440@165.003"
+	scale 1.5
+	transform "normal"
+}
+
 prefer-no-csd
 
 layout {
@@ -167,7 +173,7 @@ binds {
 
     Mod+Return { spawn "footclient"; }
     Mod+E {spawn "nemo"; }
-    Mod+Space { spawn "vicinae" "toggle"; }
+    Mod+Space { spawn "fuzzel" ; }
     Mod+V {spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
     Mod+P {spawn "vicinae" "vicinae://extensions/vicinae/file/search"; }
 
