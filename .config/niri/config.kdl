@@ -1,14 +1,13 @@
-spawn-at-startup "eww" "open" "bar"
-spawn-at-startup "vicinae" "server"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "xwayland-satellite"
 spawn-sh-at-startup "dunst"
+spawn-sh-at-startup "eww open bar"
 spawn-sh-at-startup "foot --server"
+spawn-sh-at-startup "wl-paste --watch cliphist store"
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 
-// Check out lf ?? 
 input {
     keyboard {
         xkb {
@@ -54,29 +53,30 @@ output "HDMI-A-1" {
     mode "1920x1080@74.986"
     scale 1
     transform "normal"
-
-    // Position of the output in the global coordinate space.
-    // This affects directional monitor actions like "focus-monitor-left", and cursor movement.
-    // The cursor can only move between directly adjacent outputs.
-    // Output scale and rotation has to be taken into account for positioning:
-    // outputs are sized in logical, or scaled, pixels.
-    // For example, a 3840×2160 output with scale 2.0 will have a logical size of 1920×1080,
-    // so to put another output directly adjacent to it on the right, set its x to 1920.
-    // If the position is unset or results in an overlap, the output is instead placed
-    // automatically.
-    // position x=1280 y=0
-}
+    position x=0 y=0
+//     // Position of the output in the global coordinate space.
+//     // This affects directional monitor actions like "focus-monitor-left", and cursor movement.
+//     // The cursor can only move between directly adjacent outputs.
+//     // Output scale and rotation has to be taken into account for positioning:
+//     // outputs are sized in logical, or scaled, pixels.
+//     // For example, a 3840×2160 output with scale 2.0 will have a logical size of 1920×1080,
+//     // so to put another output directly adjacent to it on the right, set its x to 1920.
+//     // If the position is unset or results in an overlap, the output is instead placed
+//     // automatically.
+//     // position x=1280 y=0
+ }
 
 output "eDP-1" {
 	mode "2560x1440@165.003"
 	scale 1.5
 	transform "normal"
+	// position x=1920 y=0
 }
 
 prefer-no-csd
 
 layout {
-    gaps 8
+    gaps 2
     center-focused-column "never"
     always-center-single-column
     preset-column-widths {
@@ -89,7 +89,7 @@ layout {
 
     focus-ring {
         // off
-        width 2
+        width 1
 
         // - CSS named colors: "red"
         // - RGB hex: "#rgb", "#rgba", "#rrggbb", "#rrggbbaa"
@@ -161,7 +161,7 @@ window-rule {
 // Example: enable rounded corners for all windows.
 // (This example rule is commented out with a "/-" in front.)
 window-rule {
-    geometry-corner-radius 8
+    geometry-corner-radius 2
     clip-to-geometry true
 }
 
@@ -174,8 +174,7 @@ binds {
     Mod+Return { spawn "footclient"; }
     Mod+E {spawn "nemo"; }
     Mod+Space { spawn "fuzzel" ; }
-    Mod+V {spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
-    Mod+P {spawn "vicinae" "vicinae://extensions/vicinae/file/search"; }
+    Mod+V {spawn-sh "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }

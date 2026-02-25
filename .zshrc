@@ -123,3 +123,6 @@ source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
 source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/functionrc"
 export ROCM_PATH=/opt/rocm
 export HSA_OVERRIDE_GFX_VERSION=10.3.0
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:"/home/asim/acados/lib"
+export ACADOS_SOURCE_DIR="/home/asim/acados"
+
